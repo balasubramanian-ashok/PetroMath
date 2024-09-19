@@ -357,10 +357,18 @@ app.post('/changepwd', isLoginEnsured, function (req, res) {
     });
 });
 
-app.get('/logout', function (req, res) {
-    req.logout();
+//app.get('/logout', function (req, res) {
+//    req.logout();
+//    res.redirect('/login');
+//});
+
+app.get('/logout', function(req, res, next) {
+  req.logout(function(err) {
+    if (err) { return next(err); }
     res.redirect('/login');
+  });
 });
+
 
 app.get('/cashflow', isLoginEnsured, function (req, res, next) {
     cashflowController.getCashFlowEntry(req, res, next);
