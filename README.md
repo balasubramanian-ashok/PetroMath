@@ -4,4 +4,4 @@
 `npm install --save`
 
 ## Run step : start server
-`npm start` or  `node app`
+`ENVIRONMENT=dev npm start` or `ENVIRONMENT=dev node app`
